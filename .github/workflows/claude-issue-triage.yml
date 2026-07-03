@@ -23,8 +23,13 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
 
-          # Necesita gestionar labels y comentar en el issue
-          claude_args: '--allowed-tools "Bash(gh issue *),Bash(gh label *)"'
+          # Necesita leer archivos del repo (CLAUDE.md, game.js, etc.) además de
+          # gestionar labels y comentar en el issue
+          claude_args: '--allowed-tools "Read,Glob,Grep,Bash(gh issue *),Bash(gh label *)"'
+
+          # DEBUG temporal: muestra la salida completa para diagnosticar por qué
+          # no se aplicaron labels ni se publicó el diagnóstico. Revertir tras el diagnóstico.
+          show_full_output: true
 
           prompt: |
             Estás analizando el issue #${{ github.event.issue.number }} del repositorio

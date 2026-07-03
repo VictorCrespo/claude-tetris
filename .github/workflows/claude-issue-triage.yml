@@ -27,10 +27,6 @@ jobs:
           # gestionar labels y comentar en el issue
           claude_args: '--allowed-tools "Read,Glob,Grep,Bash(gh issue *),Bash(gh label *)"'
 
-          # DEBUG temporal: muestra la salida completa para diagnosticar por qué
-          # no se aplicaron labels ni se publicó el diagnóstico. Revertir tras el diagnóstico.
-          show_full_output: true
-
           prompt: |
             Estás analizando el issue #${{ github.event.issue.number }} del repositorio
             ${{ github.repository }} (un juego de Tetris en HTML/CSS/JS puro: `index.html`,

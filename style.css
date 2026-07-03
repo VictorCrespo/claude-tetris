@@ -65,10 +65,8 @@ body {
 }
 
 .top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
+  position: relative;
+  width: 300px; /* mismo ancho que #board para que el título quede centrado sobre el tablero */
   margin-bottom: 16px;
 }
 
@@ -83,7 +81,10 @@ body {
 
 /* ---- Theme toggle switch ---- */
 .theme-toggle {
-  position: relative;
+  position: absolute;
+  left: calc(100% + 20px); /* alineado con el panel lateral, fuera del ancho del título */
+  top: 50%;
+  transform: translateY(-50%);
   display: inline-block;
   width: 42px;
   height: 22px;
